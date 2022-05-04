@@ -1,17 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import {TApiResponse, useApiGet} from "./hooks/useApiHook";
-import {Button, Card, Col, Container, Row, Table} from "react-bootstrap";
+import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import {Formik, Field, Form} from 'formik';
 import * as Yup from 'yup';
 
 function App() {
 
-    const calcs: TApiResponse = useApiGet('https://localhost:7049/calc/available', {"calcName": "CombinedWith", "a": 1, "b": 2});
+    const calcs: TApiResponse = useApiGet('https://localhost:7049/calc/available', {"calcName": "CombinedWith", "a": 1, "b": 2}); // todo: should be empty
 
     const {
         data,
-        loading,
         getAPIData
     } = useApiGet('https://localhost:7049/calc', {"calcName": "CombinedWith", "a": 1, "b": 2});
 
@@ -29,7 +28,6 @@ function App() {
 
     return (
         <div className="App">
-
             <div className="jumbotron bg-light">
                 <br/>
                 <h1 className="display-4">Investment Probabilities</h1>
@@ -37,7 +35,6 @@ function App() {
             </div>
             <br/>
             <br/>
-
             <Container>
                 <Row className="justify-content-md-center">
                     <Col xs={6} md={6} lg={6}>
@@ -45,19 +42,17 @@ function App() {
                         <Card style={{width: '100%'}}>
                             <Card.Body>
                                 <Card.Title>Date Entry:</Card.Title><br/>
-
                                 <Formik
                                     initialValues={{
+                                        calcName: '',
                                         probabilityA: '',
                                         probabilityB: '',
-                                        calcName: '',
                                     }}
                                     validationSchema={SignupSchema}
                                     onSubmit={values => (getAPIData('https://localhost:7049/calc', {"calcName": values.calcName, "a": values.probabilityA, "b": values.probabilityB}))}
                                 >
                                     {({errors, touched}) => (
                                         <Form>
-
                                             <h6>Probability A</h6>
                                             <Field name="probabilityA"/>
                                             {errors.probabilityA && touched.probabilityA ? (
@@ -89,14 +84,9 @@ function App() {
                                             <Button variant="primary" type="submit">
                                                 Calculate and Add to Log
                                             </Button>
-
                                         </Form>
                                     )}
                                 </Formik>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -122,9 +112,7 @@ function App() {
                 </Row>
                 <br/>
                 <br/>
-
             </Container>
-
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-export type TIn = {
+export type TOut = {
     calcName: string;
     a: number;
     b: number;
@@ -15,13 +15,13 @@ export type TApiResponse = {
     getAPIData: any;
 };
 
-export const useApiGet = (url: string, params: TIn): TApiResponse => {
+export const useApiGet = (url: string, params: TOut): TApiResponse => {
     const [status, setStatus] = useState<Number>(0);
     const [data, setData] = useState<any>();
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
 
-    const getAPIData = async (url: string, params: TIn) => {
+    const getAPIData = async (url: string, params: TOut) => {
         setLoading(true);
         try {
             const {data, status} = await axios.get(
