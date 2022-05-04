@@ -7,8 +7,6 @@ import * as Yup from 'yup';
 
 function App() {
 
-    const [a, setA] = useState('1');
-
     const calcs: TApiResponse = useApiGet('https://localhost:7049/calc/available', {"calcName": "CombinedWith", "a": 1, "b": 2});
 
     const {
@@ -41,14 +39,8 @@ function App() {
             <br/>
 
             <Container>
-
-                {JSON.stringify(loading)}<br/>
-
-                {JSON.stringify(data)}
-
                 <Row className="justify-content-md-center">
-                    <Col xs={1} md={1} lg={1}></Col>
-                    <Col xs={5} md={5} lg={5}>
+                    <Col xs={6} md={6} lg={6}>
 
                         <Card style={{width: '100%'}}>
                             <Card.Body>
@@ -92,6 +84,7 @@ function App() {
                                                 <div className="input-feedback">{errors.calcName}</div>
                                             }
                                             <br/>
+                                            <br/>
 
                                             <Button variant="primary" type="submit">
                                                 Calculate and Add to Log
@@ -107,7 +100,7 @@ function App() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col xs={4} md={4} lg={5}>
+                    <Col xs={6} md={6} lg={6}>
                         <Card style={{width: '100%', height: '100%'}}>
                             <Card.Body>
                                 <div style={{width: '100%', height: '100%'}}>
@@ -126,7 +119,6 @@ function App() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col xs={0} md={1} lg={1}></Col>
                 </Row>
                 <br/>
                 <br/>
