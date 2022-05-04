@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "v3IbL3DmstEfsbBXCzICaN9rIcucw6rRhFRXa1gTO6EFUeoA/wQz9IKmp90YRhybNCR02f9eZnEnTyKH20TU4Q==",
+  "success": true,
+  "projectFilePath": "/home/jon/git/netapimin/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj",
+  "expectedPackageFiles": [
+    "/home/jon/.nuget/packages/nunit/2.6.4/nunit.2.6.4.nupkg.sha512",
+    "/home/jon/.nuget/packages/xamarin.uitest/2.2.4/xamarin.uitest.2.2.4.nupkg.sha512"
+  ],
+  "logs": []
+}
