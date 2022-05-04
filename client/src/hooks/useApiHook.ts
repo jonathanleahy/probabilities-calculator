@@ -9,7 +9,6 @@ export type TIn = {
 
 export type TApiResponse = {
     status: Number;
-    statusText: String;
     data: any;
     error: any;
     loading: Boolean;
@@ -18,7 +17,6 @@ export type TApiResponse = {
 
 export const useApiGet = (url: string, params: TIn): TApiResponse => {
     const [status, setStatus] = useState<Number>(0);
-    const [statusText, setStatusText] = useState<String>('');
     const [data, setData] = useState<any>();
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
@@ -26,8 +24,8 @@ export const useApiGet = (url: string, params: TIn): TApiResponse => {
     const getAPIData = async (url: string, params: TIn) => {
         setLoading(true);
         try {
-            const { data, status } = await axios.get(
-                url + (params ? "?calcname=" + params.calcName + "&a=" + params.a + "&b=" + params.b : ''),
+            const {data, status} = await axios.get(
+                url + (params ? `?calcname=${params.calcName}&a=${params.a}&b=${params.b}` : ``),
                 {
                     headers: {
                         Accept: 'application/json',
@@ -35,7 +33,6 @@ export const useApiGet = (url: string, params: TIn): TApiResponse => {
                 },
             );
             setStatus(status);
-            //setStatusText(apiResponse.statusText);
             setData(data);
         } catch (e: unknown) {
             if (typeof e === "string") {
@@ -52,5 +49,5 @@ export const useApiGet = (url: string, params: TIn): TApiResponse => {
         getAPIData(url, params);
     }, []);
 
-    return { status, statusText, data, error, loading, getAPIData };
+    return {status, data, error, loading, getAPIData};
 };
