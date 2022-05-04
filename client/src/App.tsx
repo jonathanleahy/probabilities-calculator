@@ -9,17 +9,13 @@ function App() {
 
     const [a, setA] = useState('1');
 
-    const calcs: TApiResponse = useApiGet('https://localhost:7049/calc/available', '');
-
-    // const products = calcs.data ? calcs.data.map((acalc: any) => (
-    //     JSON.stringify(acalc)
-    // )) : []
+    const calcs: TApiResponse = useApiGet('https://localhost:7049/calc/available', {"calcName": "CombinedWith", "a": 1, "b": 2});
 
     const {
         data,
         loading,
         getAPIData
-    } = useApiGet('https://localhost:7049/calc', '?calcname=Combined&a=' + a + '&b=' + Math.floor(Math.random() * 10));
+    } = useApiGet('https://localhost:7049/calc', {"calcName": "CombinedWith", "a": 1, "b": 2});
 
     const SignupSchema = Yup.object().shape({
         probabilityA: Yup.number()
@@ -65,7 +61,7 @@ function App() {
                                         calcName: '',
                                     }}
                                     validationSchema={SignupSchema}
-                                    onSubmit={values => (getAPIData(values))}
+                                    onSubmit={values => (getAPIData('https://localhost:7049/calc', {"calcName": values.calcName, "a": values.probabilityA, "b": values.probabilityB}))}
                                 >
                                     {({errors, touched}) => (
                                         <Form>
@@ -131,50 +127,6 @@ function App() {
                         </Card>
                     </Col>
                     <Col xs={0} md={1} lg={1}></Col>
-                </Row>
-                <br/>
-                <br/>
-
-                <Row className="justify-content-md-center">
-                    <h3>Previous Calculations from this Session:<br/><br/></h3>
-                    <Col xs={1} md={1} lg={1}></Col>
-                    <Col xs={9} md={9} lg={10}>
-                        <Table striped bordered hover>
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Date</th>
-                                <th>Type of Calculation</th>
-                                <th>Inputs</th>
-                                <th>Result</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>@twitter</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col xs={1} md={1} lg={1}></Col>
                 </Row>
                 <br/>
                 <br/>

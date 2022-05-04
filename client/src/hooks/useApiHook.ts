@@ -1,6 +1,12 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
+export type TIn = {
+    calcName: string;
+    a: number;
+    b: number;
+};
+
 export type TApiResponse = {
     status: Number;
     statusText: String;
@@ -10,24 +16,23 @@ export type TApiResponse = {
     getAPIData: any;
 };
 
-export const useApiGet = (url: string, params: string): TApiResponse => {
+export const useApiGet = (url: string, params: TIn): TApiResponse => {
     const [status, setStatus] = useState<Number>(0);
     const [statusText, setStatusText] = useState<String>('');
     const [data, setData] = useState<any>();
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
 
-    const getAPIData = async (a?: any) => {
-        console.log(a)
+    const getAPIData = async (url: string, params: TIn) => {
         let paa3rams1 = ''
-        if (a) {
-            paa3rams1 = "?a=" + a.probabilityA + "&b=" + a.probabilityA
+        if (params) {
+            paa3rams1 = "?calcname=" + params.calcName + "&a=" + params.a + "&b=" + params.b
         }
 
         setLoading(true);
         try {
             const { data, status } = await axios.get(
-                url + (paa3rams1 ? paa3rams1 : params ),
+                url + paa3rams1,
                 {
                     headers: {
                         Accept: 'application/json',
@@ -49,7 +54,7 @@ export const useApiGet = (url: string, params: string): TApiResponse => {
     };
 
     useEffect(() => {
-        getAPIData();
+        getAPIData(url, params);
     }, []);
 
     return { status, statusText, data, error, loading, getAPIData };
