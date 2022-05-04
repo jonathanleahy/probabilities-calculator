@@ -24,15 +24,10 @@ export const useApiGet = (url: string, params: TIn): TApiResponse => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const getAPIData = async (url: string, params: TIn) => {
-        let paa3rams1 = ''
-        if (params) {
-            paa3rams1 = "?calcname=" + params.calcName + "&a=" + params.a + "&b=" + params.b
-        }
-
         setLoading(true);
         try {
             const { data, status } = await axios.get(
-                url + paa3rams1,
+                url + (params ? "?calcname=" + params.calcName + "&a=" + params.a + "&b=" + params.b : ''),
                 {
                     headers: {
                         Accept: 'application/json',
