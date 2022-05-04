@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jon/git/netapimin/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj": {}
+    "/home/jon/git/probabilities-calculator/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj": {}
   },
   "projects": {
-    "/home/jon/git/netapimin/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj": {
+    "/home/jon/git/probabilities-calculator/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jon/git/netapimin/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj",
+        "projectUniqueName": "/home/jon/git/probabilities-calculator/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj",
         "projectName": "UITestProject1",
-        "projectPath": "/home/jon/git/netapimin/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj",
+        "projectPath": "/home/jon/git/probabilities-calculator/server-solution/UITestProject1/UITestProject1/UITestProject1.csproj",
         "packagesPath": "/home/jon/.nuget/packages/",
-        "outputPath": "/home/jon/git/netapimin/server-solution/UITestProject1/UITestProject1/obj/",
+        "outputPath": "/home/jon/git/probabilities-calculator/server-solution/UITestProject1/UITestProject1/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [

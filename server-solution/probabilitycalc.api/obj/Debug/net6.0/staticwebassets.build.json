@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "OVQmgl82RoCuOfmFVuW0WJBs0w6HyiESZunu039OEKQ=",
+  "Source": "probabilitycalc.api",
+  "BasePath": "_content/probabilitycalc.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

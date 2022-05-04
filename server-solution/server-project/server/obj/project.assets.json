@@ -1782,11 +1782,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jon/git/netapimin/server-solution/server-project/server/server.csproj",
+      "projectUniqueName": "/home/jon/git/probabilities-calculator/server-solution/server-project/server/server.csproj",
       "projectName": "server",
-      "projectPath": "/home/jon/git/netapimin/server-solution/server-project/server/server.csproj",
+      "projectPath": "/home/jon/git/probabilities-calculator/server-solution/server-project/server/server.csproj",
       "packagesPath": "/home/jon/.nuget/packages/",
-      "outputPath": "/home/jon/git/netapimin/server-solution/server-project/server/obj/",
+      "outputPath": "/home/jon/git/probabilities-calculator/server-solution/server-project/server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/jon/.nuget/NuGet/NuGet.Config"
