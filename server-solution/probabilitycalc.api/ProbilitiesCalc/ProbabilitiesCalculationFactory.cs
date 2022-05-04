@@ -18,7 +18,7 @@ public class ProbabilitiesCalculationFactory
             case "CombinedWith":
                 return new CombinedWith();
             default:
-                throw new ApplicationException(string.Format("Vehicle '{0}' cannot be created", calcType));
+                throw new ApplicationException(string.Format("Calculation '{0}' cannot be created", calcType));
         }
     }
 }
