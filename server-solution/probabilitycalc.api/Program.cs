@@ -37,53 +37,43 @@ app.MapControllers();
 
 app.MapGet("/calc/available", () =>
 {
-    // into usecase
+    // 0. into usecase
     string[] available = (new ProbabilitiesCalculationFactory()).Available();
     return JsonSerializer.Serialize(available);
 });
 
-// variable parameters?
 app.MapGet("/calc", async (
-    double? a,
-    double? b,
-    string? calcname
+    double? aIn,
+    double? bIn,
+    string? calcnameIn
 ) =>
 {
-    // a Into Usecase
+    // 1. into usecase
 
-    // 1 DTO
-    double aA = a ?? 3;
-    double bB = b ?? 2;
-    string cCalc = calcname ?? "";
+    // 2. use dto
+    double a = aIn ?? 3;
+    double b = bIn ?? 2;
+    string calcname = calcnameIn ?? "";
 
-    // 2 validation!!!!!!!!!!!!!!1
+    // 3. add validation
 
-    Thread.Sleep(500);
-
-    // 3 too complicated
-    IProbabilities eng = (new ProbabilitiesCalculationFactory()).getCalculation(cCalc);
-
-    // 4 pass variable variables
-    double engResult = eng.Calc(aA, bB);
+    IProbabilities eng = (new ProbabilitiesCalculationFactory()).getCalculation(calcname);
+    double engResult = eng.Calc(a, b);
 
     var myData = new
     {
-        a = aA,
-        b = bB,
-        type = cCalc,
+        a = a,
+        b = b,
+        type = calcname,
         result = engResult
     };
 
-    // 99 - Trim to a specific length
-    
-    // 5 log it to file
+    // 4 log to file
 
-    // 6 Tranform it to Json object
+    // 5 transform to json object
     string jsonData = JsonSerializer.Serialize(myData);
 
-    // 7 status with the .OK()
-    // 8 status with errors()
-
+    // 6 status with the .OK()/ with errors()
     return jsonData;
 });
 
